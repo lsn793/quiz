@@ -16,6 +16,7 @@ import { QuizComponent } from './quiz.component';
 })
 export class QuizGameComponent implements OnInit, OnDestroy {
   @Input() quizes: QuizItem[][];
+  @Input() quiz_name: string;
   quize: QuizItem[];
   currentIndex: number = -1;
   score:        number = 0;
@@ -25,6 +26,12 @@ export class QuizGameComponent implements OnInit, OnDestroy {
   constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
+    let lvl = localStorage.getItem(this.quiz_name)
+        
+    if (lvl && (Number(lvl) <= this.quizes.length)) {
+      this.level = Number(lvl);
+    } 
+
     this.loadComponent()
   }
 
@@ -44,15 +51,17 @@ export class QuizGameComponent implements OnInit, OnDestroy {
 
       if (this.isScoreEnough()) {
           this.score = 0;
-          this.level++;
           this.currentIndex = -1;
           
           if (this.isEndOfGame()) {
             //showResults()
             console.log('END.GAME. WINNER! CONGRADS!')
+            localStorage.setItem(this.quiz_name, String(this.quize.length));
           }
           else {
             console.log('LOAD NEXT LEVEL')
+            this.level++;
+            localStorage.setItem(this.quiz_name, String(this.level));
             this.loadComponent();
           }
         }
@@ -71,7 +80,7 @@ export class QuizGameComponent implements OnInit, OnDestroy {
   }
 
   isEndOfGame = () => {
-    return this.level > this.quizes.length;
+    return this.level + 1 > this.quizes.length;
   }
 
   isScoreEnough = () => {
@@ -97,6 +106,8 @@ export class QuizGameComponent implements OnInit, OnDestroy {
   }
 
   loadComponent() {
+    if (this.level > this.quizes.length)
+      this.level = 1;
     this.quize = this.quizes[this.level-1];
     this.currentIndex = (this.currentIndex + 1) % this.quize.length;
     let quizItem = this.quize[this.currentIndex];
