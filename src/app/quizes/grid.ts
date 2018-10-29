@@ -19,7 +19,6 @@ export class GridComponent implements QuizComponent {
     constructor() {}
     
     ngOnInit() {
-        console.log(`${this.path}`)
         this.images = Object.keys(this.answers).sort(() => Math.random() - 0.5);
     }
 
