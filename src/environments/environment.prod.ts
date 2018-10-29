@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  basehref_assets: "/wordpress/quiz/assets",
+
 };
