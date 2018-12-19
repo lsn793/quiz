@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'wordpress/calc/customers',
+    path: 'customers',
     loadChildren: './customers/customers.module#CustomersModule'
   },
   {

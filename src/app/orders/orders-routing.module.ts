@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: OrderListComponent
-  }
+  },
+  {
+    path: 'service',
+    loadChildren: './services/services.module#ServicesModule'
+  },
 ];
 
 @NgModule({
