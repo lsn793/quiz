@@ -1,21 +1,22 @@
-import { BrowserModule }        from '@angular/platform-browser';
-import { NgModule }             from '@angular/core';
-import { AppComponent }         from './app.component';
-import { GridComponent }        from './quizes/grid'
-import { QuizGameComponent }    from './quiz-game.component';
-import { QuizDirective }          from './quiz.directive';
-import { QuizService }            from './quiz.service';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
 
 @NgModule({
-  imports: [ BrowserModule ],
-  providers: [QuizService],
-  declarations: [ AppComponent,
-                  QuizGameComponent,
-                  GridComponent,
-                  QuizDirective ],
-  entryComponents: [ GridComponent ],
-  bootstrap: [ AppComponent ]
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    AppRoutingModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {
-  constructor() {}
-}
+export class AppModule { }
