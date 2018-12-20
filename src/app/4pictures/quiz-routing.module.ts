@@ -1,18 +1,21 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { CustomerListComponent } from './customer-list/customer-list.component';
-
+import { QuizComponent } from './quiz/quiz.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CustomerListComponent
-  }
+    component: QuizComponent
+  },
+  {
+    path: 'service',
+    loadChildren: './services/flags/services.module#ServicesModule'
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class CustomersRoutingModule { }
+export class QuizRoutingModule { }

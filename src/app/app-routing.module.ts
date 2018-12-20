@@ -4,12 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'customers',
-    loadChildren: './customers/customers.module#CustomersModule'
+    path: '4pictures',
+    loadChildren: './4pictures/quiz.module#QuizModule'
   },
   {
-    path: 'orders',
-    loadChildren: './orders/orders.module#OrdersModule'
+    path: '6pictures',
+    loadChildren: './6pictures/quiz.module#QuizModule'
   },
   {
     path: '',
@@ -20,7 +20,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes, { enableTracing: true })
+    RouterModule.forRoot(routes/*, { enableTracing: true }*/)
   ],
   exports: [RouterModule],
   providers: []
