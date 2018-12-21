@@ -5,8 +5,10 @@ import { Injectable } from '@angular/core';
   providedIn: ServicesModule,
 }*/)
 export class FlagService {
+	message:string;
 
-	constructor() { 
-		console.log("HELLO FROM Flag SERVICE")
+	constructor() {
+		this.message = "HELLO FROM Flag SERVICE";
+		//console.log(this.message);
 	}
 }

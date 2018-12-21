@@ -6,11 +6,13 @@ import { QuizComponent } from './quiz/quiz.component';
 const routes: Routes = [
   {
     path: '',
-    component: QuizComponent
-  },
-  {
-    path: 'service',
-    loadChildren: './services/flags/services.module#ServicesModule'
+    component: QuizComponent,
+    children: [
+      {
+        path: 'service',
+        loadChildren: './services/flags/services.module#ServicesModule'
+      },
+    ]  
   },
 ];
 

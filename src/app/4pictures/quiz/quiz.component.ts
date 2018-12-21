@@ -8,10 +8,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class QuizComponent implements OnInit {
 
-  constructor(private route:ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
   	this.router.navigate(["./service"], {relativeTo: this.route, skipLocationChange: true});
   }
 
+  onEmited(message: string) {
+    console.log("onEmited: " + message);
+
+  }
 }
