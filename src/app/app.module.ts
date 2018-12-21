@@ -1,21 +1,15 @@
 import { BrowserModule }        from '@angular/platform-browser';
 import { NgModule }             from '@angular/core';
 import { AppComponent }         from './app.component';
-import { GridComponent }        from './quizes/grid'
-import { QuizGameComponent }    from './quiz-game.component';
-import { QuizDirective }          from './quiz.directive';
-import { QuizService }            from './quiz.service';
+import { AppRoutingModule }     from './app-routing.module';
+
 
 @NgModule({
-  imports: [ BrowserModule ],
-  providers: [QuizService],
-  declarations: [ AppComponent,
-                  QuizGameComponent,
-                  GridComponent,
-                  QuizDirective ],
-  entryComponents: [ GridComponent ],
+  imports: [ 
+    BrowserModule,
+    AppRoutingModule],
+  declarations: [ AppComponent ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule {
-  constructor() {}
 }

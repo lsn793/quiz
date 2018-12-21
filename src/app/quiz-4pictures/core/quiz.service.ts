@@ -1,5 +1,5 @@
 import { Injectable }           from '@angular/core';
-import { GridComponent }        from './quizes/grid';
+import { GridComponent }        from './components/grid/grid';
 import { QuizItem }             from './quiz-item';
 
 @Injectable()

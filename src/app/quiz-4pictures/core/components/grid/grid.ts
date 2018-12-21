@@ -1,6 +1,6 @@
 import { Component, Input }  from '@angular/core';
-import { QuizComponent }     from '../quiz.component';
-import { environment }          from '../../environments/environment';
+import { QuizComponent }     from '../../quiz.component';
+import { environment }          from '../../../../../environments/environment';
 
 
 @Component({
