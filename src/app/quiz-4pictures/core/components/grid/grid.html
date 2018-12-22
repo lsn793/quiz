@@ -1,6 +1,6 @@
-{{question}}
+<H1>{{question}}</H1>
 <div class="grid-container responsive">
-    <div *ngFor="let src of images" class="grid-item">
+    <div @flyInOut *ngFor="let src of images" class="grid-item">
            <img class="responsive" src="{{path}}{{src}}" (click)="onClick($event)" >
     </div> 
 </div>

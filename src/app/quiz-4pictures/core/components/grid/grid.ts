@@ -1,12 +1,40 @@
 import { Component, Input }  from '@angular/core';
 import { QuizComponent }     from '../../quiz.component';
 import { environment }          from '../../../../../environments/environment';
+import {
+    trigger,
+    state,
+    style,
+    animate,
+    transition
+  } from '@angular/animations';
 
 
 @Component({
     selector: 'quiz-component',
     templateUrl: './grid.html',
-    styleUrls: ['./grid.css']
+    styleUrls: ['./grid.css'],
+    animations: [
+        trigger('flyInOut', [
+            state('in', style({ transform: 'translateX(0)' })),
+            transition(':enter', [
+              style({ transform: 'translateX(-100%)' }),
+              animate(200)
+            ]),
+            transition(':leave', [
+              animate(200, style({ transform: 'translateX(100%)' }))
+            ])
+        ]),
+        trigger('myInsertRemoveTrigger', [
+            transition(':enter', [
+              style({ opacity: 0 }),
+              animate('1s', style({ opacity: 1 })),
+            ]),
+            transition(':leave', [
+              animate('1s', style({ opacity: 0 }))
+            ])
+        ]),
+      ]
 })
 
 export class GridComponent implements QuizComponent {

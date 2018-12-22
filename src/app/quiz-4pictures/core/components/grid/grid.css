@@ -1,12 +1,11 @@
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
-    background-color: #2196F3;
     padding: 0px;
  }
 
 .grid-item {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #eee;
     border: 1px solid rgba(0, 0, 0, 0.8);
     padding: 5px;
     font-size: 0px;
@@ -14,11 +13,13 @@
   }
 
 .grid-item:hover {
-  background-color: rgba(231, 228, 228, 0.8);
+  background-color: #cfd8dc;
+  cursor: pointer;
+  cursor: hand;
 }
 
 .responsive {
   width: 100%;
-  max-width: 700px;
+  max-width: 500px;
   height: auto;
 }
