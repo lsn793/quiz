@@ -6,19 +6,20 @@ import { QuizItem }            from './quiz-item';
 @Component({
   selector: 'app-quiz-4pictures',
   template: `
-    <div>
+    <!--<div>
       <app-quiz-game [quizes]="quize" [quiz_name]="quiz_name"></app-quiz-game>
-    </div>
+    </div>-->
+    <router-outlet></router-outlet>
   `
 })
 export class AppQuizComponent implements OnInit {
-  quiz_name:string;
-  quize: QuizItem[][];
+  /*quiz_name:string;
+  quize: QuizItem[][];*/
 
-  constructor(private quizService: QuizService) {}
+  constructor(/*private quizService: QuizService*/) {}
 
   ngOnInit() {
-    let path =  window.location.pathname;
+    /*let path =  window.location.pathname;
     let found = path.lastIndexOf("/");
     this.quiz_name = path.slice(found+1);
 
@@ -28,7 +29,7 @@ export class AppQuizComponent implements OnInit {
         break;
       default:
         this.quize = this.quizService.getQuiz();
-    }
+    }*/
     
   }
 }
