@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppComponent }         from './app.component';
-import { StartupComponent } from './startup.component';
+import { AppStartupComponent } from './appstartup.component';
 
 
 const routes: Routes = [
@@ -10,7 +9,7 @@ const routes: Routes = [
       children: [
        {
          path: '',
-         component: StartupComponent,
+         component: AppStartupComponent,
        },
        {
          path: 'pictures',
