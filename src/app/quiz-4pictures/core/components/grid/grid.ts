@@ -2,11 +2,8 @@ import { Component, Input }  from '@angular/core';
 import { QuizComponent }     from '../../quiz.component';
 import { environment }          from '../../../../../environments/environment';
 import {
-    trigger,
-    state,
-    style,
-    animate,
-    transition
+    trigger, state, style, animateChild,
+    animate, transition, query, group,
   } from '@angular/animations';
 
 
@@ -19,10 +16,10 @@ import {
             state('in', style({ transform: 'translateX(0)' })),
             transition(':enter', [
               style({ transform: 'translateX(-100%)' }),
-              animate(200)
+              animate('300ms ease-out')
             ]),
             transition(':leave', [
-              animate(200, style({ transform: 'translateX(100%)' }))
+              animate('300ms ease-out', style({ transform: 'translateX(100%)' }))
             ])
         ]),
         trigger('myInsertRemoveTrigger', [

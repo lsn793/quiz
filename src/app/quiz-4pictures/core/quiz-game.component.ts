@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, ComponentFactoryResolver, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 
 import { QuizDirective } from './quiz.directive';
 import { QuizItem }      from './quiz-item';
 import { QuizComponent } from './quiz.component';
 
-import { QuizService }         from './quiz.service';
+import { QuizService }    from './quiz.service';
 
 
 @Component({
@@ -21,8 +21,6 @@ import { QuizService }         from './quiz.service';
 export class QuizGameComponent implements OnInit, OnDestroy {
   quiz_name:string;
   quizes: QuizItem[][];
-  /*@Input() quizes: QuizItem[][];
-  @Input() quiz_name: string;*/
   quize: QuizItem[];
   currentIndex: number = -1;
   score:        number = 0;
@@ -88,8 +86,6 @@ export class QuizGameComponent implements OnInit, OnDestroy {
           this.currentIndex = -1;
           //start again?
           this.router.navigate(['./loose'], {relativeTo: this.route, skipLocationChange: true});
-          
-          //this.loadComponent();
         }
       }
     else {

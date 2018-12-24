@@ -1,14 +1,19 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { QuizThemeService } from './quiz-theme.service';
+import { Theme }            from './theme';
+
 
 @Component({
     selector: 'app-startup',
-    template: `
-                <div>
-                    <button routerLink="/pictures">4 pictures</button>
-                    <button routerLink="/orders">Orders</button>
-                </div>
-              `
+    templateUrl: './appstartup.component.html',
+    styleUrls: ['./appstartup.component.css']
   })
 
-  export class AppStartupComponent {   
+  export class AppStartupComponent implements OnInit {   
+      themes: Theme[];
+      constructor(private quizThemeService: QuizThemeService) {}
+
+      ngOnInit() {   
+        this.themes = this.quizThemeService.getQuizTheme(); 
+      }
   }

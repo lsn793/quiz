@@ -1,0 +1,5 @@
+<div class="grid-container responsive">
+  <div *ngFor="let theme of themes" class="grid-item">
+    <button routerLink="/{{theme.path}}">{{theme.name}}</button>
+  </div> 
+</div>

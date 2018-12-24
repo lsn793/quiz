@@ -5,7 +5,6 @@ import { AppRoutingModule }     from './app-routing.module';
 import { AppStartupComponent }     from './appstartup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-
 @NgModule({
   imports: [ 
     BrowserModule,

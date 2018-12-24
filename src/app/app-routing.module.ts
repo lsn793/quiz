@@ -17,19 +17,6 @@ const routes: Routes = [
        }
       ]
   }
-  /*{
-    path: 'pictures',
-    loadChildren: './quiz-4pictures/pictures.module#PicturesModule'
-  },*/
-  /*{
-    path: 'orders',
-    loadChildren: './orders/orders.module#OrdersModule'
-  },*/
-  /*{
-    path: '',
-    redirectTo: '',
-    pathMatch: 'full'
-  }*/
 ];
 
 @NgModule({
