@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { QuizThemeService } from './quiz-theme.service';
 import { Theme }            from './theme';
+import { environment }          from '../environments/environment';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { Theme }            from './theme';
 
   export class AppStartupComponent implements OnInit {   
       themes: Theme[];
+      path: string = environment.basehref_assets;
       constructor(private quizThemeService: QuizThemeService) {}
 
       ngOnInit() {   

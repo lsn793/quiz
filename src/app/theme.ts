@@ -1,3 +1,3 @@
 export class Theme {
-    constructor(public image: string, public path: string, public name: string) {}
+    constructor(public image_path: string, public route_path: string, public quiz_name: string) {}
   }
