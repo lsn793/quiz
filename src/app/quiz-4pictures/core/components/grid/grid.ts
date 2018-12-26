@@ -38,14 +38,24 @@ export class GridComponent implements QuizComponent {
     @Input() question: any;
     @Input() answers: any;
     @Input() clicked: any;
-    images: string[] = [];
+    images_path: string[] = [];
+    images: Array<HTMLImageElement> = [];
     path: string = environment.basehref_assets;
 
     constructor() {}
     
     ngOnInit() {
-        this.images = Object.keys(this.answers).sort(() => Math.random() - 0.5);
+        this.images_path = Object.keys(this.answers).sort(() => Math.random() - 0.5);
+        this.preload();
     }
+
+    preload() {
+        for (let i = 0; i < this.images_path.length; i++) {
+            this.images[i] = new Image();
+            this.images[i].src = this.path + this.images_path[i];
+        }
+    }
+   
 
     onClick(e){
         e = e.target || e.srcElement;
