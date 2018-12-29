@@ -5,38 +5,40 @@
  }
 
 .grid-item {
-    padding: 5px;
+    padding: 7px;
     font-size: 0px;
     text-align: center;
   }
 
 .responsive {
   width: 100%;
-  max-width: 500px;
+  /* max-width: 500px; */
   height: auto;
 }
 
 .card__image {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   border-radius: 3px;
   overflow: hidden;
+  padding: 0px;
+  /* margin: 7px; */
 }
 
 .card__image > img {
-  -webkit-transition: all .25s ease-in-out;
-  -moz-transition: all .25s ease-in-out;
-  -ms-transition: all .25s ease-in-out;
-  -o-transition: all .25s ease-in-out;
   transition: all .25s ease-in-out;
 }
 
 .card__image:hover > img {
-  -webkit-transform: scale(1.2);
-  -moz-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  -o-transform: scale(1.2);
   transform: scale(1.2);
   cursor: pointer;
   cursor: hand;
+}
+.question{
+  /* text-align: center; */
+
+}
+
+:host{
+  display: block;
+  max-width: 500px;
+  text-align: center;
 }

@@ -1,6 +1,8 @@
-<H1>{{question}}</H1>
-<div class="grid-container responsive">
-    <div @flyInOut *ngFor="let src of images_path" class="grid-item">
+<div [@Disappear]="deleted ? 'out' : 'in'" class="question">
+    <H1>{{question}}</H1>
+</div>
+<div [@FlyInOut]="deleted ? 'out' : 'in'" (@FlyInOut.done)="animationDone($event)" class="grid-container responsive">
+    <div *ngFor="let src of images_path" class="grid-item">
         <div class="card__image">
            <img class="responsive" src="{{path}}{{src}}" (click)="onClick($event)" >
         </div>

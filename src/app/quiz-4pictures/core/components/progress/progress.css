@@ -1,0 +1,23 @@
+.container{
+  max-width: 500px;
+  			
+}
+
+.bg{
+  clear: both; /*cleare float from bottom elements https://css-tricks.com/all-about-floats/*/
+  background-color: greenyellow;
+  height: 2px;
+}
+
+.bar{
+  background-color: blueviolet;
+  height: 2px;
+}
+
+.right{
+  float:right;
+}
+
+.left{
+  float:left;
+}
