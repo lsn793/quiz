@@ -25,8 +25,10 @@ export class QuizGameComponent implements OnInit, OnDestroy {
   currentIndex: number = -1;
   score:        number = 0;
   level:        number = 1;
+  lives:        number = 3;
   progress_value:number = 0;
   @ViewChild(QuizDirective) quizHost: QuizDirective;
+  componentRef: any;
 
   constructor(private quizService: QuizService, private componentFactoryResolver: ComponentFactoryResolver, private route: ActivatedRoute, private router: Router) { }
 
@@ -48,7 +50,6 @@ export class QuizGameComponent implements OnInit, OnDestroy {
     } 
 
     //load quiz for first level
-    //this.quize = this.quizes[this.level-1];
     this.quize = (this.quizes[this.level-1]).sort(() => Math.random() - 0.5); //random sort for small arrays only
     
     this.loadComponent()
@@ -57,26 +58,45 @@ export class QuizGameComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  onClicked(isValidAnsver: boolean ) {
+  onClicked(isValidAnsver: boolean, node: HTMLDivElement ) {
+    if (this.lives <=0 ){
+      return;
+    }
+    //set style grid item
+    node.style.backgroundColor = isValidAnsver ? 'green': 'red';
+    
     if (isValidAnsver) {
-      //setStyleValid()
       this.score++;
       
-      //increase progress
+      //increase progress bar
       this.progress_value = (this.score * 100)/this.quize.length;
     }
     else {
-      //setStyleInvalid()
+      this.lives--;
+      if (this.lives <=0 ){
+        console.log('LOOSER. Start level again?')
+        this.score = 0;
+        this.currentIndex = -1;
+        //start again?
+        setTimeout(() => 
+        {
+          this.router.navigate(['./loose'], {relativeTo: this.route, skipLocationChange: true});
+        },
+        2000);
+      }
+
+      return;
     }
     
     if (this.isEndOfLevel()){
       this.progress_value = 0;
-      if (this.isScoreEnough()) {
+        if (this.isScoreEnough()) {
           this.score = 0;
           this.currentIndex = -1;
           
           if (this.isEndOfGame()) {
             //showResults()
+
             console.log('END.GAME. WINNER! CONGRADS!')
             localStorage.setItem(this.quiz_name, String(this.quize.length));
             this.router.navigate(['./win'], {relativeTo: this.route, skipLocationChange: true});
@@ -89,7 +109,8 @@ export class QuizGameComponent implements OnInit, OnDestroy {
             //load quiz for next level
             this.quize = (this.quizes[this.level-1]).sort(() => Math.random() - 0.5); //random sort for small arrays only
             
-            this.loadComponent();
+            (<QuizComponent>this.componentRef.instance).animate = true;
+            //this.loadComponent();
           }
         }
         else {
@@ -101,7 +122,8 @@ export class QuizGameComponent implements OnInit, OnDestroy {
         }
       }
     else {
-      this.loadComponent();
+      (<QuizComponent>this.componentRef.instance).animate = true;
+      //this.loadComponent();
     }
   }
 
@@ -143,11 +165,11 @@ export class QuizGameComponent implements OnInit, OnDestroy {
     let viewContainerRef = this.quizHost.viewContainerRef;
     viewContainerRef.clear();
     
-    let componentRef = viewContainerRef.createComponent(componentFactory);
-    (<QuizComponent>componentRef.instance).question = quizItem.question;
-    (<QuizComponent>componentRef.instance).answers = quizItem.answers;
-    (<QuizComponent>componentRef.instance).clicked = this.onClicked.bind(this);
-    
-    
+    this.componentRef = viewContainerRef.createComponent(componentFactory);
+    (<QuizComponent>this.componentRef.instance).question = quizItem.question;
+    (<QuizComponent>this.componentRef.instance).answers = quizItem.answers;
+    (<QuizComponent>this.componentRef.instance).clicked = this.onClicked.bind(this);   
+    (<QuizComponent>this.componentRef.instance).loadComponent = this.loadComponent.bind(this);   
+
   }
 }

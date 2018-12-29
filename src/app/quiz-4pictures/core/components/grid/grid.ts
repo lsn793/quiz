@@ -19,7 +19,7 @@ import {
             //   animate('1000ms ease-out')
             // ]),
             transition('* => out', [
-                animate('700ms', style({ opacity: 0 }))
+                animate('900ms', style({ opacity: 0 }))
             ]),
         ]),
          trigger('FlyInOut', [
@@ -35,20 +35,21 @@ import {
               ]),
             transition('* => out', [ //http://cubic-bezier.com
                 //animate('1000ms 100ms cubic-bezier(.68,-0.33,.83,.67)', style({ transform: 'translateX(-100%)' }))
-                animate('700ms cubic-bezier(.93,-0.54,.83,.67)', style({ transform: 'translateX(-100%)' }))
+                animate('700ms 200ms cubic-bezier(.93,-0.54,.83,.67)', style({ transform: 'translateX(-100%)' }))
             ]),
         ]),
     ],
 })
 
 export class GridComponent implements QuizComponent {
-    @Input() question: any;
-    @Input() answers: any;
-    @Input() clicked: any;
+    @Input() question:      any;
+    @Input() answers:       any;
+    @Input() clicked:       any;
+    @Input() animate:       any; //flag for animation - then animate=true - component grid going to be deleted
+    @Input() loadComponent: any;
     images_path: string[] = [];
     images: Array<HTMLImageElement> = [];
     path: string = environment.basehref_assets; //root path for assets/images
-    deleted: boolean = false; //flag for animation - then deleted=true - component grid going to be deleted
     isValid: boolean = false; // valid answer
 
     constructor() {}
@@ -69,16 +70,15 @@ export class GridComponent implements QuizComponent {
         e = e.target || e.srcElement;
         if (e.nodeName === 'IMG') {
             this.isValid = this.isValidAnswer(decodeURIComponent(e.currentSrc));
-            e.parentNode.parentNode.style.backgroundColor = this.isValid ? 'green': 'red';
+            this.clicked(this.isValid, e.parentNode.parentNode);
         }        
-        this.deleted = true;
     }
 
     animationDone(event) {       
         if (event.fromState === 'in' && event.toState === 'out' && event.triggerName === 'FlyInOut') {
-             this.clicked(this.isValid);
+            this.loadComponent();    
         }
-      }
+    }
 
     isValidAnswer = (url: string)   => {
         let obj = this.answers;

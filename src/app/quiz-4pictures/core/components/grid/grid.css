@@ -5,7 +5,8 @@
  }
 
 .grid-item {
-    padding: 7px;
+    border-radius: 3px;
+    padding: 10px;
     font-size: 0px;
     text-align: center;
   }
