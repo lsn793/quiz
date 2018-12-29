@@ -12,6 +12,7 @@ import { QuizService }    from './quiz.service';
   selector: 'app-quiz-game',
   template: `
               <div class="quiz">
+                  Lives: {{lives}}
                   <progress-bar-component [value]=progress_value [score]=score [total]=quize.length [level]=level></progress-bar-component>
                   <ng-template #elseBlock quiz-host></ng-template>
               </div>
@@ -95,7 +96,6 @@ export class QuizGameComponent implements OnInit, OnDestroy {
           this.currentIndex = -1;
           
           if (this.isEndOfGame()) {
-            //showResults()
 
             console.log('END.GAME. WINNER! CONGRADS!')
             localStorage.setItem(this.quiz_name, String(this.quize.length));
@@ -109,8 +109,8 @@ export class QuizGameComponent implements OnInit, OnDestroy {
             //load quiz for next level
             this.quize = (this.quizes[this.level-1]).sort(() => Math.random() - 0.5); //random sort for small arrays only
             
+            //start animation and load Component then
             (<QuizComponent>this.componentRef.instance).animate = true;
-            //this.loadComponent();
           }
         }
         else {
@@ -122,8 +122,8 @@ export class QuizGameComponent implements OnInit, OnDestroy {
         }
       }
     else {
+      //start animation and load Component then
       (<QuizComponent>this.componentRef.instance).animate = true;
-      //this.loadComponent();
     }
   }
 

@@ -34,7 +34,6 @@ import {
                 animate('300ms ease-out')
               ]),
             transition('* => out', [ //http://cubic-bezier.com
-                //animate('1000ms 100ms cubic-bezier(.68,-0.33,.83,.67)', style({ transform: 'translateX(-100%)' }))
                 animate('700ms 200ms cubic-bezier(.93,-0.54,.83,.67)', style({ transform: 'translateX(-100%)' }))
             ]),
         ]),
@@ -47,10 +46,11 @@ export class GridComponent implements QuizComponent {
     @Input() clicked:       any;
     @Input() animate:       any; //flag for animation - then animate=true - component grid going to be deleted
     @Input() loadComponent: any;
-    images_path: string[] = [];
-    images: Array<HTMLImageElement> = [];
-    path: string = environment.basehref_assets; //root path for assets/images
-    isValid: boolean = false; // valid answer
+    images_path:            string[] = [];
+    images:                 Array<HTMLImageElement> = [];
+    path:                   string = environment.basehref_assets; //root path for assets/images
+    isValid:                boolean = false; // valid answer
+    lastsrc:                string; //value to prevent click on the same image
 
     constructor() {}
     
@@ -69,6 +69,11 @@ export class GridComponent implements QuizComponent {
     onClick(e){
         e = e.target || e.srcElement;
         if (e.nodeName === 'IMG') {
+            if (e.parentNode.parentNode.style.backgroundColor === 'red') {
+                return; //src  alreade checked like invalid (item grid  has red  style)- return    
+            }
+            this.lastsrc = e.currentSrc;
+            
             this.isValid = this.isValidAnswer(decodeURIComponent(e.currentSrc));
             this.clicked(this.isValid, e.parentNode.parentNode);
         }        
