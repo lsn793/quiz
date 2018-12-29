@@ -60,7 +60,7 @@ export class QuizGameComponent implements OnInit, OnDestroy {
   }
 
   onClicked(isValidAnsver: boolean, node: HTMLDivElement ) {
-    if (this.lives <=0 ){
+    if (this.lives < 0 ){
       return;
     }
     //set style grid item
@@ -74,7 +74,7 @@ export class QuizGameComponent implements OnInit, OnDestroy {
     }
     else {
       this.lives--;
-      if (this.lives <=0 ){
+      if (this.lives < 0 ){
         console.log('LOOSER. Start level again?')
         this.score = 0;
         this.currentIndex = -1;
@@ -91,9 +91,7 @@ export class QuizGameComponent implements OnInit, OnDestroy {
     
     if (this.isEndOfLevel()){
       this.progress_value = 0;
-        if (this.isScoreEnough()) {
-          this.score = 0;
-          this.currentIndex = -1;
+          this.score = 0;          this.currentIndex = -1;
           
           if (this.isEndOfGame()) {
 
@@ -112,14 +110,6 @@ export class QuizGameComponent implements OnInit, OnDestroy {
             //start animation and load Component then
             (<QuizComponent>this.componentRef.instance).animate = true;
           }
-        }
-        else {
-          console.log('LOOSER. Start level again?')
-          this.score = 0;
-          this.currentIndex = -1;
-          //start again?
-          this.router.navigate(['./loose'], {relativeTo: this.route, skipLocationChange: true});
-        }
       }
     else {
       //start animation and load Component then
@@ -131,15 +121,10 @@ export class QuizGameComponent implements OnInit, OnDestroy {
     return this.level + 1 > this.quizes.length;
   }
 
-  isScoreEnough = () => {
-    return this.score >= this.quize.length;
-  }
-
   isEndOfLevel = () => {
     return this.currentIndex+1 >= this.quize.length;
   }
 
-  
   isValidAnswer = (url: string) => {
     if (this.currentIndex >= 0 && this.currentIndex < this.quize.length) {
       let obj = this.quize[this.currentIndex].answers;
