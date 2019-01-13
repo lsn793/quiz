@@ -1,6 +1,8 @@
 .grid-container {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    
     padding: 0px;
  }
 
@@ -13,7 +15,6 @@
 
 .responsive {
   width: 100%;
-  /* max-width: 500px; */
   height: auto;
 }
 
@@ -21,7 +22,6 @@
   border-radius: 3px;
   overflow: hidden;
   padding: 0px;
-  /* margin: 7px; */
 }
 
 .card__image > img {
@@ -32,10 +32,6 @@
   transform: scale(1.2);
   cursor: pointer;
   cursor: hand;
-}
-.question{
-  /* text-align: center; */
-
 }
 
 :host{

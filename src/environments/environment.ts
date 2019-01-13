@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   basehref_assets: "/assets",
+  basehref_root: "",
 };
 
 /*

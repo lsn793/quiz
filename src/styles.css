@@ -1,45 +1,64 @@
 /* Master Styles */
+html {
+	font-size: 62.5%; /* 1rem = 10px */
+}
+
 h1 {
-    color: #369;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 250%;
-  }
-  h2, h3 {
-    color: #444;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: lighter;
-  }
-  body {
-    margin: 2em;
-  }
-  body, input[text], button {
-    color: #888;
-    font-family: Cambria, Georgia;
-  }
-  a {
-    cursor: pointer;
-    cursor: hand;
-    text-decoration: none;
-  }
-  button {
-    font-family: Arial;
-    background-color: #eee;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    cursor: hand;
-  }
-  button:hover {
-    background-color: #cfd8dc;
-  }
-  button:disabled {
-    background-color: #eee;
-    color: #aaa;
-    cursor: auto;
-  }
-  
-  /* everywhere else */
-  * {
-    font-family: Arial, Helvetica, sans-serif;
-  }
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+h2, h3 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+body {
+  font-size: 1.6rem;
+  margin: 0;
+  overflow-x: hidden;
+}
+body, button {
+  color: #888;
+  font-family: Cambria, Georgia;
+}
+a {
+  cursor: pointer;
+  cursor: hand;
+  text-decoration: none;
+}
+button {
+  font-family: Arial;
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+}
+button:hover {
+  background-color: #d8d9da;
+}
+button:disabled {
+  background-color: #eee;
+  color: #aaa;
+  cursor: auto;
+}
+
+/* everywhere else */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@media ( max-width: 510px ) {
+	body {
+		font-size: 1.4rem;
+	}
+
+	h1 { font-size: 2.4rem; }
+	h2 { font-size: 2.2rem; }
+	h3 { font-size: 2.0rem; }
+	h4 { font-size: 1.8rem; }
+	h5 { font-size: 1.8rem; }
+  h6 { font-size: 1.8rem; }
+}

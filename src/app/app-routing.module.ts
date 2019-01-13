@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AppStartupComponent } from './appstartup.component';
-
 
 const routes: Routes = [
   {
+    path: 'pictures',
+    loadChildren: './quiz-4pictures/pictures.module#PicturesModule',
+  },
+  {
+    path: '6pictures',
+    loadChildren: './quiz-6pictures/pictures.module#PicturesModule',
+  },
+  {
     path: '',
-      children: [
-       {
-         path: '',
-         component: AppStartupComponent,
-       },
-       {
-         path: 'pictures',
-         loadChildren: './quiz-4pictures/pictures.module#PicturesModule',
-       }
-      ]
+    redirectTo: '/6pictures',
+    pathMatch: 'prefix'
   }
 ];
 

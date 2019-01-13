@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { environment }          from '../../../environments/environment';
+
 
 @Component({
   selector: 'app-quiz-4pictures',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
   `
 })
 export class AppQuizComponent implements OnInit {
+  path: string = environment.basehref_assets;
 
   constructor() {}
 
@@ -14,6 +17,7 @@ export class AppQuizComponent implements OnInit {
     /*let path =  window.location.pathname;
     let found = path.lastIndexOf("/");
     this.quiz_name = path.slice(found+1);
+    
 
     switch (this.quiz_name) {
       case 'flags':
