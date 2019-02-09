@@ -110,7 +110,7 @@ export class QuizGameComponent implements OnInit {
             }, 1000);
             
             let localStorageObj = {
-              level: this.quize.length,
+              level: 1,
               record: 0,
             };
             let localStorageSerialObj = JSON.stringify(localStorageObj);
