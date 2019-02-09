@@ -29,4 +29,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 BUILD:
 ng build --baseHref=/wordpress/quiz/ --prod
+ng build --baseHref=/quiz/ --prod
 

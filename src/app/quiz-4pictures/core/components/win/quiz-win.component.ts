@@ -12,7 +12,7 @@ import {
     trigger('FlyIn', [
       transition(':enter', [
           style({ transform: 'translateX(100%)' }),
-          animate('500ms cubic-bezier(.17,.67,.35,1.35)')
+          animate('800ms cubic-bezier(.17,.67,.35,1.35)')
         ]),
     ]),
   ],

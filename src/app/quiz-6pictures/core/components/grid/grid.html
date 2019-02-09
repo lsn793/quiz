@@ -1,6 +1,6 @@
 <H1>{{question}}</H1>
 <div class="grid-container responsive">
-    <div *ngFor="let src of sources;index as i; trackBy: trackByFn" class="grid-item">
+    <div *ngFor="let src of sources;index as i;" class="grid-item">
         <div class="card__image">
            <!-- <img [@Disappears]="animation == true ? 'out' : 'in'" class="responsive" src="{{path}}{{src}}" (click)="onClick($event)" > -->
            <img class="responsive" *ngIf="src!==''" [ngStyle]="{'visibility': hidden==true?'hidden':''}" src="{{path}}{{src}}" (click)="onClick($event,i)" >
