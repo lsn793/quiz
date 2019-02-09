@@ -41,10 +41,13 @@ export class QuizGameComponent implements OnInit {
 
     switch (this.quiz_name) {
       case 'flags':
-        this.quizes = this.quizService.getFlagsQuiz();
+        this.quizes = this.quizService.getFlagsQuizEasy();
+        break;
+      case 'flags_hard':
+        this.quizes = this.quizService.getFlagsQuizHard();
         break;
       default:
-        this.quizes = this.quizService.getFlagsQuiz();
+        this.quizes = this.quizService.getFlagsQuizEasy();
     }
 
     this.total_lives = this.setInitLives();

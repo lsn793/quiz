@@ -4,7 +4,7 @@ import { QuizItem }             from './quiz-item';
 
 @Injectable()
 export class QuizService {
-  getFlagsQuiz() {
+  getFlagsQuizEasy() {
     return [[//level1
       new QuizItem(GridComponent, "Китай",  {"/flags/cn.png": true, '/flags/vn.png':false,'/flags/ki.png':false,'/flags/gr.png':false}),
       new QuizItem(GridComponent, "Бразилия", {"/flags/za.png": false,'/flags/de.png':false,'/flags/tr.png':false,'/flags/br.png':true}),
@@ -42,6 +42,34 @@ export class QuizService {
       new QuizItem(GridComponent, "Финляндия", {"/flags/fi.png": true,'/flags/bw.png':false,'/flags/fr.png':false,'/flags/is.png':false}),
     ],
 
+    ]
+  };
+
+  getFlagsQuizHard() {
+    return [[//level1
+      new QuizItem(GridComponent, "Польша",  {"/flags/pl.png": true, '/flags/pe.png':false,'/flags/at.png':false,'/flags/dk.png':false}),
+      new QuizItem(GridComponent, "Швейцария", {"/flags/ch.png": true,'/flags/to.png':false,'/flags/ge.png':false,'/flags/mt.png':true}),
+      new QuizItem(GridComponent, "Тунис", {"/flags/tn.png": true,'/flags/tr.png':true,'/flags/sg.png':false,'/flags/dz.png':false}),
+      new QuizItem(GridComponent, "Венгрия", {"/flags/hu.png": true,'/flags/tj.png':true,'/flags/ne.png':false,'/flags/in.png':false}),
+      new QuizItem(GridComponent, "Исландия", {"/flags/is.png": true,'/flags/no.png':false,'/flags/aa.png':false,'/flags/fo.png':false}),
+      new QuizItem(GridComponent, "Камерун", {"/flags/cm.png": true,'/flags/sn.png':false,'/flags/ml.png':false,'/flags/gh.png':false}),
+      new QuizItem(GridComponent, "Венесуэла", {"/flags/ve.png": true,'/flags/ec.png':false,'/flags/co.png':false,'/flags/sc.png':false}),
+      new QuizItem(GridComponent, "Гондурас", {"/flags/hn.png": false,'/flags/ni.png':false,'/flags/gt.png':true,'/flags/sv.png':false}),
+      new QuizItem(GridComponent, "Румыния", {"/flags/ro.png": true,'/flags/md.png':false,'/flags/ad.png':false,'/flags/bb.png':false}),
+      new QuizItem(GridComponent, "Лихтенштейн", {"/flags/li.png": true,'/flags/ht.png':false,'/flags/kh.png':false,'/flags/nr.png':false}),
+    ],
+    [//level2
+      new QuizItem(GridComponent, "Македония", {"/flags/mk.png": true,'/flags/sc.png':false,'/flags/bi.png':false,'/flags/cf.png':false}),
+      new QuizItem(GridComponent, "Ватикан", {"/flags/va.png": true,'/flags/vc.png':false,'/flags/lk.png':false,'/flags/bn.png':false}),
+      new QuizItem(GridComponent, "Фиджи", {"/flags/fj.png": true,'/flags/tv.png':false,'/flags/nz.png':false,'/flags/ws.png':false}),
+      new QuizItem(GridComponent, "Сан-Марино", {"/flags/sm.png": true,'/flags/so.png':false,'/flags/pw.png':false,'/flags/rw.png':false}),
+      new QuizItem(GridComponent, "Бангладеш", {"/flags/bd.png": true,'/flags/la.png':false,'/flags/pw.png':false,'/flags/bz.png':false}),
+      new QuizItem(GridComponent, "Латвия", {"/flags/lv.png": true,'/flags/mu.png':false,'/flags/mw.png':false,'/flags/qa.png':false}),
+      new QuizItem(GridComponent, "Португалия", {"/flags/pt.png": true,'/flags/bj.png':false,'/flags/cg.png':false,'/flags/gy.png':false}),
+      new QuizItem(GridComponent, "Словакия", {"/flags/sk.png": true,'/flags/si.png':false,'/flags/ru.png':false,'/flags/bg.png':false}),
+      new QuizItem(GridComponent, "ОАЭ", {"/flags/ae.png": true,'/flags/sd.png':false,'/flags/kw.png':false,'/flags/jo.png':false}),
+      new QuizItem(GridComponent, "Монако", {"/flags/mc.png": true,'/flags/id.png':false,'/flags/sg.png':false,'/flags/pl.png':false}),
+    ],
     ]
   }
 }
