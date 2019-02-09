@@ -7,9 +7,9 @@ import { QuizItem }             from './quiz-item';
 export class QuizService {
   getQuiz() {
     return [
-      new QuizItem(GridComponent, "China",  {"/flags/images (8).png": false,'/flags/images (9).png':false,"/flags/images (4).png": true, '/flags/images (3).png':false,'/flags/images (1).png':false,'/flags/images (6).png':false}),
+      /*new QuizItem(GridComponent, "China",  {"/flags/images (8).png": false,'/flags/images (9).png':false,"/flags/images (4).png": true, '/flags/images (3).png':false,'/flags/images (1).png':false,'/flags/images (6).png':false}),
       new QuizItem(GridComponent, "Brazil", {'/flags/images (3).png':false,'/flags/images (1).png':false,"/flags/images (8).png": false,'/flags/images (9).png':false,'/flags/images (10).png':false,'/flags/images (11).png':true}),
-      new QuizItem(GridComponent, "Greece", {'/flags/images (3).png':false,'/flags/images (1).png':false,"/flags/images (5).png": false,'/flags/images (6).png':true,'/flags/images (7).png':false,'/flags/images (8).png':false}),
+      new QuizItem(GridComponent, "Greece", {'/flags/images (3).png':false,'/flags/images (1).png':false,"/flags/images (5).png": false,'/flags/images (6).png':true,'/flags/images (7).png':false,'/flags/images (8).png':false}),*/
     ]
   }
 }
