@@ -21,6 +21,7 @@
   border-radius: 3px;
   overflow: hidden;
   padding: 0px;
+  border: 1px solid rgb(209, 208, 208);
   /* margin: 7px; */
 }
 
@@ -42,4 +43,8 @@
   display: block;
   max-width: 520px;
   text-align: center;
+}
+
+img{
+  
 }
